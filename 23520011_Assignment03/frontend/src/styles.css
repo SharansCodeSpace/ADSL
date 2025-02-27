@@ -1,2 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+html {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: oklch(0.274 0.006 286.033);
+}
+
+/* For WebKit-based browsers (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+    width: 0px;
+    /* Hide scrollbar width */
+    height: 0px;
+    display: none;
+}
+
+/* For Firefox */
+* {
+    scrollbar-width: none;
+}
+
+/* For Internet Explorer & Edge */
+* {
+    -ms-overflow-style: none;
+}

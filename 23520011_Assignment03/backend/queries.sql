@@ -68,24 +68,6 @@ INSERT INTO course (course_id, title, dept_name, credits) VALUES
 ('CS103', 'Database Management Systems', 'CS', 4),
 ('CS104', 'Artificial Intelligence', 'CS', 3),
 
--- Electronics Department
-('EE201', 'Digital Signal Processing', 'Electronics', 3),
-('EE202', 'Microprocessors and Microcontrollers', 'Electronics', 4),
-('EE203', 'Communication Systems', 'Electronics', 3),
-('EE204', 'Embedded Systems', 'Electronics', 4),
-
--- Mechanical Department
-('ME301', 'Thermodynamics', 'Mechanical', 4),
-('ME302', 'Fluid Mechanics', 'Mechanical', 3),
-('ME303', 'Manufacturing Processes', 'Mechanical', 4),
-('ME304', 'Machine Design', 'Mechanical', 3),
-
--- Civil Department
-('CE401', 'Structural Analysis', 'Civil', 4),
-('CE402', 'Transportation Engineering', 'Civil', 3),
-('CE403', 'Hydraulics and Water Resources', 'Civil', 4),
-('CE404', 'Construction Planning and Management', 'Civil', 3),
-
 -- IT Department
 ('IT501', 'Web Development', 'IT', 3),
 ('IT502', 'Cybersecurity', 'IT', 4),
@@ -98,24 +80,6 @@ INSERT INTO course (course_id, title, dept_name, credits) VALUES
 ('CS302', 'Advanced Database Systems', 'CS', 3),  -- Requires CS103 (DBMS)
 ('CS303', 'Computer Networks', 'CS', 3),  -- Requires CS102 (OS)
 ('CS304', 'Software Architecture', 'CS', 3),  -- Requires IT504 (Software Engg)
-
--- Electronics Department
-('EE301', 'Wireless Communication', 'Electronics', 3),  -- Requires EE203 (Comm Systems)
-('EE302', 'Robotics and Automation', 'Electronics', 4),  -- Requires EE204 (Embedded Sys)
-('EE303', 'VLSI Design', 'Electronics', 4),  -- Requires EE202 (Microcontrollers)
-('EE304', 'Power Electronics', 'Electronics', 3),  -- Requires EE201 (DSP)
-
--- Mechanical Department
-('ME401', 'Automobile Engineering', 'Mechanical', 4),  -- Requires ME303 (Manufacturing)
-('ME402', 'Heat Transfer', 'Mechanical', 3),  -- Requires ME301 (Thermodynamics)
-('ME403', 'Computer-Aided Design', 'Mechanical', 4),  -- Requires ME304 (Machine Design)
-('ME404', 'Renewable Energy Systems', 'Mechanical', 3),  -- Requires ME302 (Fluid Mechanics)
-
--- Civil Department
-('CE501', 'Bridge Engineering', 'Civil', 4),  -- Requires CE401 (Structural Analysis)
-('CE502', 'Geotechnical Engineering', 'Civil', 3),  -- Requires CE403 (Hydraulics)
-('CE503', 'Urban Planning', 'Civil', 4),  -- Requires CE404 (Construction Planning)
-('CE504', 'Environmental Engineering', 'Civil', 3),  -- Requires CE402 (Transportation Engg)
 
 -- IT Department
 ('IT601', 'Big Data Analytics', 'IT', 4),  -- Requires IT503 (Cloud Computing)

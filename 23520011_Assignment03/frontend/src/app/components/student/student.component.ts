@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import Swal from 'sweetalert2';
 
 interface Department {
   dept_name: string;
@@ -14,8 +15,8 @@ interface Department {
   standalone: true,
   imports: [CommonModule, FormsModule],
   template: `
-    <div class="max-w-xl mx-auto p-6 bg-white shadow rounded">
-      <h2 class="text-2xl font-bold mb-4">Student Form</h2>
+    <div class="max-w-xl mx-auto p-6 bg-zinc-600 text-white shadow rounded-lg">
+      <h2 class="text-2xl font-bold mb-4 text-center">Student Form</h2>
       <form (ngSubmit)="submitForm()">
         <div class="mb-4">
           <label class="block font-semibold">ID:</label>
@@ -29,14 +30,14 @@ interface Department {
         <div class="mb-4">
           <label class="block font-semibold">Department:</label>
           <select [(ngModel)]="student.dept_name" name="dept_name" required class="w-full p-2 border rounded">
-            <option *ngFor="let dept of departments" [value]="dept.dept_name">{{ dept.dept_name }}</option>
+            <option class="text-black" *ngFor="let dept of departments" [value]="dept.dept_name">{{ dept.dept_name }}</option>
           </select>
         </div>
         <div class="mb-4">
           <label class="block font-semibold">Total Credits:</label>
           <input type="number" [(ngModel)]="student.tot_cred" name="tot_cred" class="w-full p-2 border rounded">
         </div>
-        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Add Student</button>
+        <button type="submit" class="bg-blue-300 text-black px-4 py-2 rounded">Add Student</button>
       </form>
       <h2 class="text-2xl font-bold mt-6">Student List</h2>
       <ul class="mt-4">
@@ -72,9 +73,22 @@ export class StudentComponent {
   submitForm() {
     this.http.post('http://localhost:5000/students', this.student)
       .subscribe(response => {
-        console.log('Student added:', response);
+        Swal.fire({
+          title: 'Success!',
+          text: 'Student added successfully!',
+          icon: 'success',
+          confirmButtonText: 'OK',
+          timer: 2000
+        });
         this.getStudents();
         this.student = { ID: null, name: '', dept_name: '', tot_cred: null };
+      }, error => {
+        Swal.fire({
+          title: 'Error!',
+          text: 'Failed to add student!',
+          icon: 'error',
+          confirmButtonText: 'Try Again'
+        });
       });
   }
 }

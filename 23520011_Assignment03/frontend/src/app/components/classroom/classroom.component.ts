@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
   standalone: true,
   imports: [CommonModule, FormsModule],
   template: `
-    <div class="max-w-xl mx-auto p-6 bg-white shadow rounded">
+    <div class="max-w-xl mx-auto p-6 bg-zinc-600 text-white shadow rounded-lg">
       <h2 class="text-2xl font-bold mb-4">Classroom Form</h2>
       <form (ngSubmit)="submitForm()">
         <div class="mb-4">
@@ -23,7 +23,7 @@ import { HttpClient } from '@angular/common/http';
           <label class="block font-semibold">Capacity:</label>
           <input type="number" [(ngModel)]="classroom.capacity" name="capacity" class="w-full p-2 border rounded">
         </div>
-        <button type="submit" class="bg-teal-500 text-white px-4 py-2 rounded">Add Classroom</button>
+        <button type="submit" class="bg-teal-300 text-black px-4 py-2 rounded">Add Classroom</button>
       </form>
       <h2 class="text-2xl font-bold mt-6">Classroom List</h2>
       <ul class="mt-4">

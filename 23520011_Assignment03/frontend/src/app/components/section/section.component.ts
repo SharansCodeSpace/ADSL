@@ -8,14 +8,14 @@ import { HttpClient } from '@angular/common/http';
   standalone: true,
   imports: [CommonModule, FormsModule],
   template: `
-    <div class="max-w-xl mx-auto p-6 bg-white shadow rounded">
+    <div class="max-w-xl mx-auto p-6 bg-zinc-600 text-white shadow rounded-lg">
       <h2 class="text-2xl font-bold mb-4">Section Form</h2>
       <form (ngSubmit)="submitForm()">
         <!-- Select Course -->
         <div class="mb-4">
           <label class="block font-semibold">Course:</label>
           <select [(ngModel)]="section.course_id" name="course_id" required class="w-full p-2 border rounded">
-            <option *ngFor="let c of courses" [value]="c.course_id">{{ c.course_id }} - {{ c.title }}</option>
+            <option class="text-black" *ngFor="let c of courses" [value]="c.course_id">{{ c.course_id }} - {{ c.title }}</option>
           </select>
         </div>
         <!-- Section ID, Semester, Year -->
@@ -37,8 +37,8 @@ import { HttpClient } from '@angular/common/http';
         <div class="mb-4">
           <label class="block font-semibold">Classroom:</label>
           <select [(ngModel)]="selectedClassroom" name="classroom" (change)="onClassroomChange($event)" required class="w-full p-2 border rounded">
-            <option value="">Select Classroom</option>
-            <option *ngFor="let room of classrooms" [value]="room.building + ',' + room.room_number">
+            <option class="text-black" value="">Select Classroom</option>
+            <option class="text-black" *ngFor="let room of classrooms" [value]="room.building + ',' + room.room_number">
               {{ room.building }} - {{ room.room_number }}
             </option>
           </select>
@@ -47,13 +47,13 @@ import { HttpClient } from '@angular/common/http';
         <div class="mb-4">
           <label class="block font-semibold">Time Slot:</label>
           <select [(ngModel)]="section.time_slot_id" name="time_slot_id" required class="w-full p-2 border rounded">
-            <option value="">Select Time Slot</option>
-            <option *ngFor="let t of timeSlots" [value]="t.time_slot_id">
+            <option class="text-black" value="">Select Time Slot</option>
+            <option class="text-black" *ngFor="let t of timeSlots" [value]="t.time_slot_id">
               {{ t.time_slot_id }}: {{ t.day }} {{ t.start_time }}-{{ t.end_time }}
             </option>
           </select>
         </div>
-        <button type="submit" class="bg-blue-700 text-white px-4 py-2 rounded">Add Section</button>
+        <button type="submit" class="bg-blue-300 text-black px-4 py-2 rounded">Add Section</button>
       </form>
       <h2 class="text-2xl font-bold mt-6">Section List</h2>
       <ul class="mt-4">

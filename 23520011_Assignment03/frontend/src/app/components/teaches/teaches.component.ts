@@ -8,28 +8,28 @@ import { HttpClient } from '@angular/common/http';
   standalone: true,
   imports: [CommonModule, FormsModule],
   template: `
-    <div class="max-w-md mx-auto p-6 bg-white shadow rounded">
+    <div class="max-w-md mx-auto p-6 bg-zinc-600 text-white shadow rounded-lg">
       <h2 class="text-2xl font-bold mb-4">Teaches Form</h2>
       <form (ngSubmit)="submitForm()">
         <!-- Select Instructor -->
         <div class="mb-4">
           <label class="block font-semibold">Instructor:</label>
           <select [(ngModel)]="teaches.ID" name="ID" required class="w-full p-2 border rounded">
-            <option value="">Select Instructor</option>
-            <option *ngFor="let i of instructors" [value]="i.ID">{{ i.name }} (ID: {{ i.ID }})</option>
+            <option class="text-black" value="">Select Instructor</option>
+            <option class="text-black" *ngFor="let i of instructors" [value]="i.ID">{{ i.name }} (ID: {{ i.ID }})</option>
           </select>
         </div>
         <!-- Select Section -->
         <div class="mb-4">
           <label class="block font-semibold">Section:</label>
           <select [(ngModel)]="selectedSection" name="section" (change)="onSectionChange($event)" required class="w-full p-2 border rounded">
-            <option value="">Select Section</option>
-            <option *ngFor="let s of sections" [value]="s.course_id + ',' + s.sec_id + ',' + s.semester + ',' + s.year">
+            <option class="text-black" value="">Select Section</option>
+            <option class="text-black" *ngFor="let s of sections" [value]="s.course_id + ',' + s.sec_id + ',' + s.semester + ',' + s.year">
               {{ s.course_id }} - {{ s.sec_id }} - {{ s.semester }} {{ s.year }}
             </option>
           </select>
         </div>
-        <button type="submit" class="bg-pink-500 text-white px-4 py-2 rounded">Add Teaches Record</button>
+        <button type="submit" class="bg-pink-300 text-black px-4 py-2 rounded">Add Teaches Record</button>
       </form>
       <h2 class="text-2xl font-bold mt-6">Teaches List</h2>
       <ul class="mt-4">

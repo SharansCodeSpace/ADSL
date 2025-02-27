@@ -8,23 +8,23 @@ import { HttpClient } from '@angular/common/http';
   standalone: true,
   imports: [CommonModule, FormsModule],
   template: `
-    <div class="max-w-md mx-auto p-6 bg-white shadow rounded">
+    <div class="max-w-md mx-auto p-6 bg-zinc-600 text-white shadow rounded-lg">
       <h2 class="text-2xl font-bold mb-4">Takes Form</h2>
       <form (ngSubmit)="submitForm()">
         <!-- Select Student -->
         <div class="mb-4">
           <label class="block font-semibold">Student:</label>
           <select [(ngModel)]="takes.ID" name="ID" required class="w-full p-2 border rounded">
-            <option value="">Select Student</option>
-            <option *ngFor="let s of students" [value]="s.ID">{{ s.name }} (ID: {{ s.ID }})</option>
+            <option  class="text-black" value="">Select Student</option>
+            <option  class="text-black" *ngFor="let s of students" [value]="s.ID">{{ s.name }} (ID: {{ s.ID }})</option>
           </select>
         </div>
         <!-- Select Section -->
         <div class="mb-4">
           <label class="block font-semibold">Section:</label>
           <select [(ngModel)]="selectedSection" name="section" (change)="onSectionChange($event)" required class="w-full p-2 border rounded">
-            <option value="">Select Section</option>
-            <option *ngFor="let s of sections" [value]="s.course_id + ',' + s.sec_id + ',' + s.semester + ',' + s.year">
+            <option  class="text-black" value="">Select Section</option>
+            <option  class="text-black" *ngFor="let s of sections" [value]="s.course_id + ',' + s.sec_id + ',' + s.semester + ',' + s.year">
               {{ s.course_id }} - {{ s.sec_id }} - {{ s.semester }} {{ s.year }}
             </option>
           </select>
@@ -34,7 +34,7 @@ import { HttpClient } from '@angular/common/http';
           <label class="block font-semibold">Grade:</label>
           <input type="text" [(ngModel)]="takes.grade" name="grade" class="w-full p-2 border rounded">
         </div>
-        <button type="submit" class="bg-gray-700 text-white px-4 py-2 rounded">Add Takes Record</button>
+        <button type="submit" class="bg-gray-300 text-black px-4 py-2 rounded">Add Takes Record</button>
       </form>
       <h2 class="text-2xl font-bold mt-6">Takes List</h2>
       <ul class="mt-4">
@@ -52,7 +52,7 @@ export class TakesComponent {
   sections: any[] = [];
   selectedSection: string = '';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
     this.getTakes();

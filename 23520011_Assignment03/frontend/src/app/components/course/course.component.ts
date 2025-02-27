@@ -12,7 +12,7 @@ interface Department {
   standalone: true,
   imports: [CommonModule, FormsModule],
   template: `
-    <div class="max-w-xl mx-auto p-6 bg-white shadow rounded">
+    <div class="max-w-xl mx-auto p-6 bg-zinc-600 text-white shadow rounded-lg">
       <h2 class="text-2xl font-bold mb-4">Course Form</h2>
       <form (ngSubmit)="submitForm()">
         <div class="mb-4">
@@ -27,14 +27,14 @@ interface Department {
         <div class="mb-4">
           <label class="block font-semibold">Department:</label>
           <select [(ngModel)]="course.dept_name" name="dept_name" required class="w-full p-2 border rounded">
-            <option *ngFor="let dept of departments" [value]="dept.dept_name">{{ dept.dept_name }}</option>
+            <option class="text-black" *ngFor="let dept of departments" [value]="dept.dept_name">{{ dept.dept_name }}</option>
           </select>
         </div>
         <div class="mb-4">
           <label class="block font-semibold">Credits:</label>
           <input type="number" [(ngModel)]="course.credits" name="credits" class="w-full p-2 border rounded">
         </div>
-        <button type="submit" class="bg-purple-500 text-white px-4 py-2 rounded">Add Course</button>
+        <button type="submit" class="bg-purple-300 text-black px-4 py-2 rounded">Add Course</button>
       </form>
       <h2 class="text-2xl font-bold mt-6">Course List</h2>
       <ul class="mt-4">
