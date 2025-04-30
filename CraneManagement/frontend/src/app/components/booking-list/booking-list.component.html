@@ -1,0 +1,28 @@
+<div class="max-w-4xl mx-auto mt-10">
+    <h2 class="text-2xl font-bold mb-4">Bookings</h2>
+    <table class="min-w-full bg-white border">
+        <thead>
+            <tr>
+                <th class="py-2 px-4 border-b">Crane Type</th>
+                <th class="py-2 px-4 border-b">From</th>
+                <th class="py-2 px-4 border-b">To</th>
+                <th class="py-2 px-4 border-b">Status</th>
+                <th class="py-2 px-4 border-b">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let booking of bookings">
+                <td class="py-2 px-4 border-b">{{ booking.crane_type }}</td>
+                <td class="py-2 px-4 border-b">{{ booking.from_date }}</td>
+                <td class="py-2 px-4 border-b">{{ booking.to_date }}</td>
+                <td class="py-2 px-4 border-b">{{ booking.status }}</td>
+                <td class="py-2 px-4 border-b">
+                    <button *ngIf="isAdmin && booking.status === 'pending'" (click)="approveBooking(booking.id)"
+                        class="bg-green-500 text-white px-3 py-1 rounded">
+                        Approve
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
